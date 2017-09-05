@@ -1,0 +1,37 @@
+version: '2'
+services:
+
+    varnish:
+        image: million12/varnish
+        ports:
+            - "80:80"
+        environment:
+            VCL_CONFIG: /data/webservers.vcl
+        volumes:
+            - ./varnish:/data
+        links:
+            - web1
+            - web2
+            - web3
+
+
+    web1:
+        image: richarvey/nginx-php-fpm
+        ports:
+            - "8001:80"
+        volumes:
+            - ./src:/var/www/html
+
+    web2:
+        image: richarvey/nginx-php-fpm
+        ports:
+            - "8002:80"
+        volumes:
+            - ./src:/var/www/html
+
+    web3:
+        image: richarvey/nginx-php-fpm
+        ports:
+            - "8003:80"
+        volumes:
+            - ./src:/var/www/html
