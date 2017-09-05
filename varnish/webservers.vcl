@@ -4,35 +4,14 @@ import directors;
 
 backend web1 {
     .host = "web1";
-    .probe = {
-        .url = "/";
-        .timeout = 1s;
-        .interval = 5s;
-        .window = 5;
-        .threshold = 3;
-    }
 }
 
 backend web2 {
     .host = "web2";
-    .probe = {
-        .url = "/";
-        .timeout = 1s;
-        .interval = 5s;
-        .window = 5;
-        .threshold = 3;
-    }
 }
 
 backend web3 {
     .host = "web3";
-    .probe = {
-        .url = "/";
-        .timeout = 1s;
-        .interval = 5s;
-        .window = 5;
-        .threshold = 3;
-    }
 }
 
 sub vcl_init {
